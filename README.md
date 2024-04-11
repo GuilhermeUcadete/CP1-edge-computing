@@ -3,50 +3,6 @@ Check Point 1 - Edge Computing |
  RM558418-Guilherme Ulacco | RM556517-Matheus Hostim | RM555372-Enzo Bonacasata | RM555351-Henrique Lomaski | RM558932-Luiz Guilherme | RM559097  Vinicius Augusto
  | 
  
-CÓDIGO:
-
-const int pinLDR = A0;  
-const int pinLEDVerde = 10;  
-const int pinLEDAmarelo = 9;  
-const int pinLEDVermelho = 8; 
-const int buzzerPin = 7; 
-
-void setup() {
-  pinMode(pinLEDVerde, OUTPUT);
-  pinMode(pinLEDAmarelo, OUTPUT);
-  pinMode(pinLEDVermelho, OUTPUT);
-  pinMode(buzzerPin, OUTPUT);
-  Serial.begin(9600);
-}
-
-void loop() {
-  int valorLDR = analogRead(pinLDR); 
-  Serial.print("Luminosidade: ");
-  Serial.println(valorLDR);
-
-  int limiarAlto = 800;  
-  int limiarBaixo = 300;  
-
-  if (valorLDR >= limiarAlto) {
-    digitalWrite(pinLEDVerde, HIGH);
-    digitalWrite(pinLEDAmarelo, LOW);
-    digitalWrite(pinLEDVermelho, LOW);
-    noTone(buzzerPin);
-  } else if (valorLDR > limiarBaixo && valorLDR < limiarAlto) {
-    digitalWrite(pinLEDVerde, LOW);
-    digitalWrite(pinLEDAmarelo, HIGH);
-    digitalWrite(pinLEDVermelho, LOW);
-    tone(buzzerPin, 1000);
-  } else {
-    digitalWrite(pinLEDVerde, LOW);
-    digitalWrite(pinLEDAmarelo, LOW);
-    digitalWrite(pinLEDVermelho, HIGH);
-    noTone(buzzerPin);
-  }
-
-  delay(1000);  
-}
-
 EXPLICAÇÃO:
 O código é para um sistema que controla LEDs com base na luminosidade do ambiente. Ele usa um sensor de luminosidade (LDR) para medir a luz e decide qual LED ligar de acordo com a luminosidade medida.
 No começo, o programa configura os pinos do Arduino para conectar o LDR, os LEDs e o buzzer. Depois, entra em um loop que faz o seguinte:
