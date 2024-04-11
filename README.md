@@ -1,5 +1,5 @@
 # CP1-edge-computing  
-Check Point 1 - Edge Computing
+Check Point 1 - Edge Computing |
  RM558418-Guilherme Ulacco | RM556517-Matheus Hostim | RM555372-Enzo Bonacasata | RM555351-Henrique Lomaski | RM558932-Luiz Guilherme | RM559097  Vinicius Augusto
  | 
 CÓDIGO:
