@@ -7,7 +7,7 @@ CÓDIGO:
 const int pinLDR = A0;  
 const int pinLEDVerde = 10;  
 const int pinLEDAmarelo = 9;  
-const int pinLEDVermelho = 8;  
+const int pinLEDVermelho = 8; 
 const int buzzerPin = 7; 
 
 void setup() {
