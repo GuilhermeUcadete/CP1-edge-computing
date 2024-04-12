@@ -1,13 +1,13 @@
 const int pinLDR = A0;  
-const int pinLEDVerde = 10;  
-const int pinLEDAmarelo = 9;  
-const int pinLEDVermelho = 8;  
+const int pinLEDGreen = 10;  
+const int pinLEDYellow = 9;  
+const int pinLEDRed = 8;  
 const int buzzerPin = 7; 
 
 void setup() {
-  pinMode(pinLEDVerde, OUTPUT);
-  pinMode(pinLEDAmarelo, OUTPUT);
-  pinMode(pinLEDVermelho, OUTPUT);
+  pinMode(pinLEDGreen, OUTPUT);
+  pinMode(pinLEDYellow, OUTPUT);
+  pinMode(pinLEDRed, OUTPUT);
   pinMode(buzzerPin, OUTPUT);
   Serial.begin(9600);
 }
@@ -17,24 +17,26 @@ void loop() {
   Serial.print("Luminosidade: ");
   Serial.println(valorLDR);
 
-  int limiarAlto = 800;  
-  int limiarBaixo = 300;  
+  int limiarAlto = 900;  
+  int limiarBaixo = 800;  
 
-  if (valorLDR >= limiarAlto) {
-    digitalWrite(pinLEDVerde, HIGH);
-    digitalWrite(pinLEDAmarelo, LOW);
-    digitalWrite(pinLEDVermelho, LOW);
+  if (valorLDR > limiarAlto) {
+    digitalWrite(pinLEDGreen, LOW);
+    digitalWrite(pinLEDYellow, HIGH);
+    digitalWrite(pinLEDRed, HIGH);
     noTone(buzzerPin);
+    
   } else if (valorLDR > limiarBaixo && valorLDR < limiarAlto) {
-    digitalWrite(pinLEDVerde, LOW);
-    digitalWrite(pinLEDAmarelo, HIGH);
-    digitalWrite(pinLEDVermelho, LOW);
+    digitalWrite(pinLEDGreen, HIGH);
+    digitalWrite(pinLEDYellow, LOW);
+    digitalWrite(pinLEDRed, HIGH);
     tone(buzzerPin, 1000);
+
   } else {
-    digitalWrite(pinLEDVerde, LOW);
-    digitalWrite(pinLEDAmarelo, LOW);
-    digitalWrite(pinLEDVermelho, HIGH);
-    noTone(buzzerPin);
+    digitalWrite(pinLEDGreen, HIGH);
+    digitalWrite(pinLEDYellow, HIGH);
+    digitalWrite(pinLEDRed, LOW);
+    tone(buzzerPin, 1000);
   }
 
   delay(1000);  
